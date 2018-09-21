@@ -2,3 +2,4 @@
 data/*.json
 logs/*.pth
 __pycache__/*
+vocab.json
