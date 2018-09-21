@@ -1,0 +1,4 @@
+*.h5
+data/*.json
+logs/*.pth
+__pycache__/*
