@@ -135,11 +135,12 @@ def main():
     config_as_dict = {k: v for k, v in vars(config).items() if not k.startswith('__')}
 
     for i in range(config.epochs):
-        
-        r = run(net, val_loader, optimizer, scheduler, tracker, train=False, prefix='val', epoch=i, has_answers=not args.test)
 
         if not args.eval_only:
             run(net, train_loader, optimizer, scheduler, tracker, train=True, prefix='train', epoch=i)
+        
+        r = run(net, val_loader, optimizer, scheduler, tracker, train=False, prefix='val', epoch=i, has_answers=not args.test)
+
 
         if not args.test:
             results = {

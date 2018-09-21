@@ -16,7 +16,6 @@ from tqdm import tqdm
 
 import config
 import data
-import model
 import model_transformer
 import utils
 from PIL import Image
@@ -32,9 +31,11 @@ def run(net, loader, item):
 
 	coco_id = loader.dataset.coco_ids[item]
 	image_path = "/home/user/data/mscoco/images/train2017/" + str(coco_id).zfill(12) + ".jpg"
+	if not os.path.isfile(image_path):
+		image_path = "/home/user/data/mscoco/images/val2017/" + str(coco_id).zfill(12) + ".jpg"
 	image = Image.open(image_path)
 	image.show()
-
+	print(image_path)
 	question = input("What do you seek?")
 
 	#net.eval()
