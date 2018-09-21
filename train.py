@@ -15,7 +15,6 @@ from tqdm import tqdm
 
 import config
 import data
-import model
 import model_transformer
 import utils
 
@@ -97,7 +96,7 @@ def main():
 
     if args.test:
         args.eval_only = True
-    src = open('model.py').read()
+    src = open('model_transformer.py').read()
     if args.name:
         name = ' '.join(args.name)
     else:
